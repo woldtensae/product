@@ -1,5 +1,6 @@
 package www.productservice.com.service;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,9 @@ public class ProductService {
 		category.setProducts(products);
 		productRepository.save(product);
 		categoryRepository.save(category);
+	}
+	
+	public List<Product> getAllProducts() {
+		return (List<Product>) productRepository.findAll();
 	}
 }
