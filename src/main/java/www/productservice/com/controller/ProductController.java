@@ -17,10 +17,14 @@ public class ProductController {
 	
 	@GetMapping("/saveProduct")
 		public void saveProduct() {
+		Product product = new Product();
+		product.setProductName("Iphone");
+		productService.saveProduct(product, "electronics");
 	}
 	
 	@GetMapping("/getProducts")
 	public List<Product> getProducts(){
+		
 		return productService.getAllProducts();
 	}
 }

@@ -1,7 +1,6 @@
 package www.productservice.com.service;
 
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,11 +20,7 @@ public class ProductService {
 	public void saveProduct(Product product, String categoryName) {
 		Category category = categoryRepository.findByCategoryName(categoryName);
 		product.setCategory(category);
-		Set<Product> products =  category.getProducts();
-		products.add(product);
-		category.setProducts(products);
 		productRepository.save(product);
-		categoryRepository.save(category);
 	}
 	
 	public List<Product> getAllProducts() {
