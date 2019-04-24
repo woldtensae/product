@@ -17,10 +17,16 @@ public class Product {
 	private Long id;
 	@Column(name="product_name")
 	private String productName;
+	@Column(name="price")
+	private double price;
 	
 	@ManyToOne(fetch= FetchType.EAGER)
 	@JoinColumn(name ="category_id")
 	private Category category;
+	
+	@ManyToOne(fetch= FetchType.EAGER)
+	@JoinColumn(name ="supplier_id")
+	private Supplier supplier;
 
 	public Long getId() {
 		return id;
@@ -45,6 +51,20 @@ public class Product {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	
-	
+
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}	
 }

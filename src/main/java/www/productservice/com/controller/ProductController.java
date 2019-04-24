@@ -15,10 +15,12 @@ public class ProductController {
 	@Autowired
 	ProductService productService;
 	
-	@GetMapping("/saveProduct")
-		public void saveProduct() {
+	@GetMapping("/saveProduct")	
+	public void saveProduct() {
 		Product product = new Product();
 		product.setProductName("Iphone");
+		product.setPrice(1000.00);
+		
 		productService.saveProduct(product, "electronics");
 	}
 	
